@@ -1,0 +1,57 @@
+@import "../Mixins.scss";
+@import "../Variables.scss";
+
+.Home-page-articles-slider{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .main-text-buttons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        @include sm{
+            flex-direction: column;
+            justify-content: center
+        }
+        span{
+            @include text-style($medium-text-size, 400, $font-color-black, 100%);
+            b{
+                font-weight: 600;
+            }
+            @include md{
+                @include text-style(22px, 400, $font-color-black, 100%);
+            }
+            @include sm{
+                @include text-style(max(3vw, 18px), 400, $font-color-black, 100%);
+            }
+        }
+        .buttons{
+            display: flex;
+            gap: 10px;
+            button{
+                cursor: pointer;
+                border: none;
+                outline: none;
+                width: 30px;
+                height: 30px;
+                padding: 0;
+                background-color: transparent;
+                @include sm{
+                    width: max(7vw, 40px);
+                    height: max(7vw, 40px);
+                }
+                svg{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        } 
+    }
+    .all-articles-blocks{
+        transition: all 0.5s ease-out;
+        display: flex;
+        gap: 30px;
+    }
+}

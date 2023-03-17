@@ -1,0 +1,85 @@
+@import '../Mixins.scss';
+@import '../Variables.scss';
+
+section{
+    display: flex;
+    flex-direction: row;
+    gap: 7.5px;
+    transition: all 0.5s ease-out;
+    @include lg{
+        padding: 20px;
+    }
+    @include md{
+        padding: 20px 0;
+    }
+    @include sm{
+        padding: max(2.85vw, 10px) 0;
+    }
+    &.active{
+        gap: 15px;
+    }
+    .search-icon{
+        width: 50px;
+        height: 50px;
+        background: $purple-color;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        svg{
+            width: 60%;
+        }
+        @include sm{
+            border-radius: max(2.14vw, 8px);
+            width: max(7.14vw, 35px);
+            height: max(7.14vw, 35px);
+        }
+    }
+    input[type = text]{
+        border: 3px solid #a76cff00;
+        border-radius: 15px;
+        width: 0;
+        text-decoration: none;
+        font-family: 'Work Sans', sans-serif;
+        font-size: 20px;
+        color: #A66CFF;
+        font-weight: 400;
+        outline: none;
+        padding: 0;
+        transition: all 0.5s ease-out;
+        &.active{
+            border: 3px solid $purple-color;
+            width: max(26vw, 380px);
+            padding: 0 20px;
+            @include lg{
+                width: max(34vw, 380px);
+            }
+        }
+        @include lg{
+            height: 50px;
+            width: max(34vw, 380px);
+            border: 3px solid $purple-color;
+            padding: 0 20px;
+        }
+        @include md{
+            width: max(38vw, 200px);
+        }
+        @include sm{
+            width: 60%;
+            font-size: max(2.85vw, 16px);
+            height: fit-content;
+            padding: max(1.42vw, 5px);
+            border-radius: max(2.14vw, 8px);
+
+        }
+    }
+    button[class = sign-up]{
+        @include button-style($medium-text-size, $small-padding-button);
+        @include lg{
+            display: none;
+        }
+    }
+}

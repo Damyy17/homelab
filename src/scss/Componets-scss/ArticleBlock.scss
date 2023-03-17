@@ -1,0 +1,162 @@
+@import "../Mixins.scss";
+@import "../Variables.scss";
+
+article{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    transition: all 0.5s ease-out;
+    opacity: 1;
+    margin: 0;
+    &.active{
+        margin: 0 50px 0 85px;
+    }
+    &.invisible{
+        opacity: 0;
+    }
+    &.visible{
+        opacity: 1;
+    }
+    .main-article-block{
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+        width: fit-content;
+        height: fit-content;
+        overflow: hidden;
+        border-radius: $border-radius;
+        background-color: $block-color;
+        transition: all 0.5s ease-out;
+        transform: translateY(0) rotate(0);
+        &.active{
+            transform: translateY(20px) rotate(6deg);
+        }
+        .article-circle{
+            position: absolute;
+            .lottie{
+                width: 100%;
+                height: auto;
+                right: 50%;
+            }
+        }
+        .article-content{
+            padding: 180px 25px 25px 25px ;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            @include lg{
+                padding: 160px 15px 15px 15px ;
+                gap: 15px;
+            }
+            @include sm{
+                padding: max(35.7vw, 100px) max(10vw, 10px) max(10vw, 10px) max(10vw, 10px);
+                gap: max(4.28vw, 5px);
+            }
+            .name-button{
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                align-items: center;
+                @include sm{
+                    gap: max(7.14vw, 15px)
+                }
+                article{
+                    @include text-style($medium-text-size, 700, $font-color-black, 100%);
+                    width: 200px;
+                    height: 55px;
+                    @include sm{
+                        width: max(42.8vw, 150px);
+                        @include text-style(max(3.71vw, 22px), 700, $font-color-black, 100%);
+                    }
+                }
+                button{
+                    width: 45px;
+                    height: 45px;
+                    padding: 0;
+                    border: none;
+                    background-color: transparent;
+                    @include sm{
+                        width: max(8.57vw, 45px);
+                        height: max(8.57vw, 45px);
+                    }
+                    svg{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+            .types-date{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
+                .types{
+                    display: flex;
+                    gap: 3px;
+                    span{
+                        width: 28px;
+                        height: 28px;
+                    }
+                }
+                .date{
+                    @include text-style($small-text-size, 400, $font-color-black, 100%);
+                    @include sm{
+                        @include text-style(max(3.14vw, 18px), 400, $font-color-black, 100%)
+                    }
+                }
+            }
+        }
+    }
+    .article-decoration-blocks{
+        .pen{
+            position: absolute;
+            transform: translateX(20px) translateY(80px) rotate(-10deg);
+            transition: all 0.5s ease-out;
+            &.active{
+                transform: translateX(-90px) translateY(150px) rotate(15deg);  
+            }
+        }
+        .decoration-text-block{
+            z-index: -1;
+            position: absolute;
+            border-radius: 15px;
+            transform: translateX(5px) translateY(10px) rotate(0);
+            padding: 30px 20px 150px 20px;
+            @include text-style($medium-text-size, 400, $font-color-white, 100%);
+            background-color: $black-blue-color;
+            width: 200px;
+            transition: all 0.5s ease-out;
+            @include lg{
+                padding: 30px 20px 100px 20px;
+            }
+            &.active{
+                transform: translateX(-60px) translateY(0) rotate(-22deg);
+            }
+        }
+        .decoration-cirlces-block{
+            position: absolute;
+            display: flex;
+            gap: 10px;
+            border-radius: $border-radius;
+            z-index: -1;
+            padding: 15px 140px 230px 15px;
+            background-color: $purple-color;
+            transform: translateX(5px) translateY(10px) rotate(0);
+            transition: all 0.5s ease-out;
+            @include lg{
+                padding: 15px 140px 180px 15px;
+            }
+            span{
+                background-color: $black-blue-color;
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+            }
+            &.active{
+                transform: translateX(90px) translateY(-15px) rotate(15deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+@import "../Mixins.scss";
+@import "../Variables.scss";
+
+.disciplines-block {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    gap: 20px;
+    @include md {
+        grid-template-columns: auto auto;
+    }
+    @include sm {
+        grid-template-columns: auto auto;
+        gap: max(2.85vw, 10px);
+    }
+    a {
+        width: max(15vw, 200px);
+        padding: max(3vw, 40px) max(2vw, 20px);
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        border-radius: 20px;
+        background-color: $block-color;
+        height: fit-content;
+        transition: all 0.5s ease-out;
+        pointer-events:all;
+        text-decoration: none;
+        cursor: inherit;
+        &.active {
+            pointer-events: all;
+            cursor: pointer;
+            svg {
+                .circle{
+                    fill: $black-blue-color;
+                }
+                opacity: 0.9;
+            }
+            &:hover {
+                background-color: #2c365e;
+            }
+            &:hover p {
+                color: $purple-color;
+            }
+            &:hover .circle {
+                fill: $purple-color;
+            }
+        }
+        @include lg {
+            width: max(17vw, 170px);
+        }
+        @include md {
+            width: max(34vw, 230px);
+            padding: max(5vw, 30px) max(4vw, 10px);
+        }
+        @include sm {
+            width: max(34vw, 110px);
+        }
+        p {
+            margin: 0;
+            font-weight: 700;
+            font-size: 2.6vw;
+            line-height: 100%;
+            color: $font-color-black;
+            @include md {
+                font-size: max(3vw, 36px);
+            }
+            @include sm {
+                font-size: max(5vw, 20px);
+            }
+            transition: all 0.5s ease-out;
+        }
+        svg {
+            width: 100%;
+            .circle {
+                fill: #CECDCD;
+                transition: all 0.5s ease-out;
+            }
+        }
+    }
+}

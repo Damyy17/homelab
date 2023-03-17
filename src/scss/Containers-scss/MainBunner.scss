@@ -1,0 +1,55 @@
+@import "../Mixins.scss";
+@import "../Variables.scss";
+
+.Bunner{
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    height: 510px;
+    padding: 0;
+    @include md{
+        height: fit-content;
+    }
+    .bunner-content{
+    border-radius: 20px;
+    background-color: $black-blue-color;
+    width: calc(100% - 152px);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 86px 76px;
+    @include lg{
+        padding: 86px max(5vw, 50px);
+        width: calc(100% - 50px);
+    }
+    @include sm{
+        padding: max(12.28vw, 25px) max(7.14vw, 25px);
+    }
+        p{
+            padding: 0;
+            margin: 0;
+            @include text-style($big-text-size, 400, $font-color-white, 115%);
+            @include sm{
+                @include text-style(max(9.14vw, 32px), 400, $font-color-white, 115%)
+            }
+        }
+        button{
+            @include button-style($medium-text-size, $large-padding-button);
+            @include md{
+                @include button-style($medium-text-size, $medium-padding-button)
+            }
+        }
+    }
+    .lottie-bunner{
+        position: absolute;
+        width: auto;
+        height: 510px;
+        @include lg{
+            height: max(35.4vw, 380px);
+        }
+        @include md{
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@import "../Mixins.scss";
+@import "../Variables.scss";
+
+.articles-containe-buttons{
+
+}
+.artices-container{
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}

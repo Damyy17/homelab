@@ -1,0 +1,143 @@
+@import "../Mixins.scss";
+@import "../Variables.scss";
+
+nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    @include lg{
+        align-items: flex-start;
+        background-color: $block-color;
+        padding: 25px;
+        flex-direction: column;
+        border-radius: $border-radius;
+    }
+    @include sm{
+        padding: max(3.5vw, 10px);
+    }
+    .close-button{
+        cursor: pointer;
+        padding: 0;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        border: none;
+        outline: none;
+        border-radius: $border-radius;
+        background-color: $purple-color;
+        display: none;
+        svg{
+            width: 60%;
+        }
+        @include lg{
+            display: block;
+        }
+        @include sm{
+            border-radius: max(2.14vw, 8px);
+            width: max(7.14vw, 35px);
+            height: max(7.14vw, 35px);
+        }
+    }
+    .logo {
+        height: fit-content;
+        border: none;
+        background-color: rgb(0, 0, 0, 0);
+        cursor: pointer;
+        svg{
+            width:165px; 
+            height:26px;
+            @include md{
+                width:max(16.5vw, 100px); 
+                height:max(2.6vw, 14px);
+                padding: 0;
+            }
+            .color2{
+                fill: $purple-color;
+            }
+            .color1{
+                fill: $black-blue-color;
+            }
+        }
+    }
+    ul {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        gap: 15px;
+        @include lg{
+            border-left: solid 3px $purple-color;
+            flex-direction: column;
+
+        }
+        li {
+            width: fit-content;
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            align-self: center;
+            @include lg{
+                padding-left: 20px;
+                width: 100%;
+                justify-content: left;
+                align-items: self-start;
+            }
+            a {
+                border: none;
+                background-color: rgb(0, 0, 0, 0);
+                width: auto;
+                height: fit-content;
+                color: $font-color-black;
+                font-family: "Work Sans", sans-serif;
+                text-decoration: none;
+                font-style: normal;
+                font-weight: 300;
+                font-size: $medium-text-size;
+                line-height: 100%;
+                cursor: pointer;
+                transition: all 0.5s ease-in;
+                @include lg{
+                    padding-left: 10px;
+                }
+                @include sm{
+                    font-size: max(2.85vw, 16px);
+                }
+            }
+            span {
+                border: 5px;
+                width: 0%;
+                height: 3px;
+                background: $purple-color;
+                transition: all 0.5s ease-in;
+                border-radius: $border-radius;
+                @include lg{
+                    position: absolute;
+                    width: 3px;
+                    height: 0;
+                }
+            }
+            &:hover a {
+                color: $purple-color;
+            }
+            &.active a {
+                color: $purple-color;
+            }
+            &:hover span {
+                @include lg{
+                    height: 20px;
+                }
+            }
+            &.active span {
+                @include lg{
+                    height: 20px;
+                }
+            }
+        }
+    }
+}

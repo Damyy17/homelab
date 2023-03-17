@@ -1,0 +1,42 @@
+@import '../Mixins.scss';
+@import '../Variables.scss';
+header{
+    display: flex;
+    justify-content: space-between;
+}
+.burger{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    gap: 7px;
+    border: none;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    &:hover span:nth-child(1){
+        width: 55px;
+    }
+    &:hover span:nth-child(2){
+        width: 40px;
+    }
+    &:hover span:nth-child(3){
+        width: 55px;
+    }
+    
+    span{
+        background-color: $black-blue-color;
+        height: 6px;
+        border-radius: $border-radius;
+        transition: all 0.5s ease-out;
+    }
+    span:nth-child(1){
+        width: 40px;
+    }
+    span:nth-child(2){
+        width: 55px;
+    }
+    span:nth-child(3){
+        width: 40px;
+    }
+}

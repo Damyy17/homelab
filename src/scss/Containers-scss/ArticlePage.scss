@@ -1,0 +1,102 @@
+@import "../Mixins.scss";
+@import "../Variables.scss";
+
+.article-page-container{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    .title-short-text{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        @include lg{
+            flex-direction: column;
+            gap: 20px;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        .title-links{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            .links-conatainer{
+                display: flex;
+                gap: 10px;
+                a{
+                    @include text-style(25px, 500, $font-color-black, 100%);
+                    text-decoration: none;
+                    transition: all 0.5s ease-out;
+                    &:hover{
+                        @include text-style(25px, 500, $purple-color, 100%);
+                    }
+                    @include sm{
+                        @include text-style(max(3.57vw, 16px),500, $font-color-black, 100%)
+                    }
+                }
+            }
+            p{
+                width: 700px;
+                padding: 0;
+                margin: 0;
+                @include text-style(64px, 700, $font-color-black, 120%);
+                @include md{
+                    width: 400px;
+                    @include text-style(50px, 700, $font-color-black, 120%);
+                }
+                @include sm{
+                    width: 100%;
+                    @include text-style(max(7.14vw, 32px), 700, $font-color-black, 120%);
+                }
+            }
+        }
+        article{
+            border-radius: $border-radius;
+            width: 875px;
+            @include text-style(20px, 300, $font-color-black, 110%);
+            @include md{
+                width: calc(100% - 100px);
+            }
+            @include sm{
+                width: calc(100% - 30px);
+                @include text-style(max(2.85vw, 16px), 300, $font-color-black, 110%);
+            }
+        }
+    }
+    .more-information-container{
+        display: grid;
+        grid-template-columns: 55% 35%;
+        grid-column-gap: 90px;
+        grid-row-gap: 30px;
+        @include md{
+            grid-template-columns: calc(100% - 60px);
+        }
+        @include sm{
+            grid-template-columns: calc(100% - 30px);
+        }
+        .text-block{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            span{
+                @include text-style(20px, 400, $font-color-black, 110%);
+            }
+            article{
+                padding: 30px;
+                background-color: $block-color;
+                border-radius: $border-radius;
+                width: 100%;
+                &.black-theme{
+                    background-color: $black-blue-color;
+                    @include text-style(20px, 300, $purple-color, 110%);
+                }
+                @include text-style(20px, 300, $font-color-black, 110%);
+                @include sm{
+                    padding: max(4.28vw, 15px);
+                    @include text-style(max(2.85vw, 16px), 300, $font-color-black, 110%);
+                }
+            }
+        }
+    }
+}

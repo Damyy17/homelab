@@ -1,0 +1,61 @@
+$Breakpoints:(
+    "xs":300px,
+    "sm":700px,
+    "md":1000px,
+    "lg":1440px,
+    "xl":1920px
+);
+@mixin xs {
+    @media (max-width:map-get($Breakpoints, "xs")) {
+        @content;
+    }
+}
+@mixin sm {
+    @media (max-width:map-get($Breakpoints, "sm")) {
+        @content;
+    }
+}
+@mixin md {
+    @media (max-width:map-get($Breakpoints, "md")) {
+        @content;
+    }
+}
+@mixin lg {
+    @media (max-width:map-get($Breakpoints, "lg")) {
+        @content;
+    }
+}
+@mixin xl {
+    @media (max-width:map-get($Breakpoints, "xl")) {
+        @content;
+    }
+}
+
+@mixin text-style($font-size, $font-weight, $font-color, $font-hight){
+    font-family: $main-font;
+    font-weight: $font-weight;
+    font-style: normal;
+    font-size: $font-size;
+    line-height: $font-hight;
+    color: $font-color;
+}
+@mixin button-style($font-size, $button-padding){
+    width: fit-content;
+    font-family: $main-font;
+    font-weight: 500;
+    font-style: normal;
+    font-size: $font-size;
+    line-height: 100%;   
+    border-radius: 15px;
+    border: solid 3px $purple-color;
+    outline: none;
+    color: $font-color-white;
+    background-color: $purple-color;
+    transition: all .5s ease-out;
+    padding: $button-padding;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(0,0,0,0);
+        color: $purple-color;
+    }
+}

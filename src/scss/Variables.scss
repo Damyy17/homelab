@@ -1,0 +1,35 @@
+@import "Mixins.scss";
+
+:root{
+    --backround-color: #F8F8F8;
+}
+$backround-color: #F8F8F8;
+$purple-color: #A66CFF;
+$black-blue-color: #2C365E;
+$block-color: #E9E9E9;
+$border-radius: 15px;
+
+//button style 
+$medium-padding-button: 10px 25px;
+$small-padding-button: 5px 15px;
+$large-padding-button: 15px 35px;
+
+//text style
+$main-font: 'Work Sans';
+$small-text-size: 18px;
+$medium-text-size: 20px;
+$big-text-size: 64px;
+$font-color-black: #242424;
+$font-color-white: #F6F6F6;
+
+//app margin paddings
+$lg-padding: 50px;
+$sm-padding: 10px;
+$lg-margin: max(7.8vw, 50px);
+$sm-margin: max(7.14vw, 10px);
+
+//article style
+$lg-article-width: 320px;
+$lg-article-hight: 304px;
+$md-article-width: 276px;
+$md-article-hight: 292px
