@@ -8,7 +8,7 @@ import ChooseClassContainer from './containers/ChooseClassContainer';
 import ArticlesPage from './containers/ArticlesPage';
 import ArticlePage from './containers/ArticlePage';
 
-function App() {
+const App = () => {
   const [typeBackround, setBackround] = useState("inactive")
   const windoPath = window.location.pathname.split("/")
   let content
