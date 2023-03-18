@@ -1,8 +1,8 @@
 {
   "name": "homelab",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://dammy17.github.io/",
+  "private": false,
+  "homepage": "https://damyy17.github.io/homelab/",
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.2",
     "@testing-library/jest-dom": "^5.16.5",
