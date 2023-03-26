@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/homelab'
+        <Route path='/'
         element={<LayOut/>}
         >
           <Route path='' element={
