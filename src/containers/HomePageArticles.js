@@ -30,11 +30,14 @@ useLayoutEffect(()=>{
   }
   const [numberOfActiveArrState, setNumberOfArtiveArrState]= useState([])
   console.log(numberOfActive)
-  window.onload = function(){
-    for(let i=0; i<numberOfActive; i++){
-      setNumberOfArtiveArrState((current)=>[...current, i])
-    }
-  }
+  useEffect(()=>{
+      console.log("Hello world")
+      for(let i = 0; i < numberOfActive; i+=1){
+        console.log("merge")
+        setNumberOfArtiveArrState((current)=>[...current, i])
+      }
+  },[numberOfActive])
+  console.log(numberOfActiveArrState)
 
   return (
     <section ref={articleMainBlock} className='Home-page-articles-slider'>
@@ -101,7 +104,11 @@ useLayoutEffect(()=>{
           transform : `translateX(${moveValuie*(articleValue+30)}px)`
       }}
         >
-        <ArticleBlocks articleVisibleValue={numberOfActiveArrState} articleWidthValue={setValue} number={undefined} articleType={"Chimestry"}></ArticleBlocks>
+        <ArticleBlocks 
+        articleVisibleValue={numberOfActiveArrState} 
+        articleWidthValue={setValue} 
+        number={undefined} 
+        articleType={"home"}></ArticleBlocks>
         </div>
     </section>
   )

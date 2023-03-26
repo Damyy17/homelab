@@ -19,6 +19,7 @@ article{
         opacity: 1;
     }
     .main-article-block{
+        text-decoration: none;
         display: flex;
         justify-content: flex-end;
         cursor: pointer;
@@ -63,6 +64,7 @@ article{
                     gap: max(7.14vw, 15px)
                 }
                 article{
+                    text-decoration: none;
                     @include text-style($medium-text-size, 700, $font-color-black, 100%);
                     width: 200px;
                     height: 55px;

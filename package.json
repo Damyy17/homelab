@@ -2,7 +2,7 @@
   "name": "homelab",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://tandraf.github.io/homelab/",
+  "homepage": "https://tandraf.github.io/homelab/",
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.2",
     "@testing-library/jest-dom": "^5.16.5",
@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "react-router-dom": "^6.9.0"
   }
 }

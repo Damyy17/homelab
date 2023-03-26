@@ -1,7 +1,16 @@
 import React,{useState} from 'react';
+import { NavLink } from 'react-router-dom';
 import '../scss/Componets-scss/NavBar.scss'
 
 export default function NavBar({typeBackround}) {
+  const [NavLinkToggle, setNavLinkToggle] = useState(0)
+  const toggleLink = (Index)=>{
+    if(NavLinkToggle === Index){
+      return "Active"
+    }else{
+      return " "
+    }
+  }
   const menuItem = [
     {
       key: 1,
@@ -56,11 +65,17 @@ export default function NavBar({typeBackround}) {
               <ul>
                   {menuItem.map((item ,Index) => {
                     return(
-                       <li key={Index}>
-                        <a href={item.link} className={item.ClassName}>
+                       <li className={toggleLink(Index)} key={Index}>
+                        <NavLink to={item.link} key={Index} className={item.ClassName}
+                        onClick={
+                          ()=>{
+                            setNavLinkToggle(Index)
+                          }
+                        }
+                        >
                             {item.title} 
-                        </a>
-                        <span></span>
+                        </NavLink>
+                        <span className={toggleLink(Index)}></span>
                       </li>
                     )
                   })}

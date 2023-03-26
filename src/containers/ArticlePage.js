@@ -1,14 +1,21 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom'
 import Articles from '../Assets/Articles'
 import "../scss/Containers-scss/ArticlePage.scss"
-import ArticleBlockActive from "../Assets/ArticleBlockActive.svg"
 
-function ArticlePage({windowLink}) {
-    console.log(windowLink)
+function ArticlePage() {
+
+    // const [articleHistoryValue, setArticleHistoryValuie] = useState([])
+    // useEffect(()=>{
+    //     const valuie = JSON.parse(localStorage.getItem("historyValue"))
+    //     setArticleHistoryValuie(valuie)
+    // },[setArticleHistoryValuie])
+    const {title} = useParams()
+    console.log(title)
   return (
     <>
     {Articles.map((item,Index)=>{
-        if(item.link === windowLink){
+        if(item.link === title){
             return(
                 <section className='article-page-container'>
                     <section className="title-short-text">
@@ -47,6 +54,8 @@ function ArticlePage({windowLink}) {
                                 {item.alert}
                             </article>
                         </div>
+                    </section>
+                    <section className='histoty-section'>
                     </section>
                 </section>
             )

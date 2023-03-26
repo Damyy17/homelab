@@ -1,4 +1,5 @@
-import React,{useState,useRef, useLayoutEffect} from 'react'
+import React,{useState, useRef, useLayoutEffect, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 import "../scss/Componets-scss/ArticleBlock.scss"
 import Article from "../Assets/JSON/Article.json"
 import Lottie from 'lottie-react'
@@ -8,12 +9,18 @@ function ArticleBlocks({articleVisibleValue,articleWidthValue,articleType,number
 
     const lottieRef = useRef(null)
     const articleRef = useRef(0)
+    const [historyValue, setHistoryValuie] = useState([])
     const [articleWidth, setArticleWidth] = useState(0)
     useLayoutEffect(()=>{
         setArticleWidth(
             articleRef.current.offsetWidth
         )
     }, [])
+    useEffect(()=>{
+        localStorage.setItem("items", JSON.stringify(historyValue))
+        const valuie = JSON.parse(localStorage.getItem("historyValue"))
+        setHistoryValuie(valuie)
+    },[])
     articleWidthValue(articleWidth)
     const [articleActive, setArticleActive] = useState(NaN)
     const articleActiveFunction = (index) =>{
@@ -56,17 +63,15 @@ function ArticleBlocks({articleVisibleValue,articleWidthValue,articleType,number
                     <span></span> <span></span> <span></span> 
                 </div>
             </div>
-            <div className={`main-article-block ${articleActiveFunction(Index)}`}
+            <Link 
+            to={`Articles/${item.link}`}
+            className={`main-article-block ${articleActiveFunction(Index)}`}
             onMouseOverCapture={()=>{
                 setArticleActive(Index)
             }}
             onMouseLeave={()=>{
                 setArticleActive(NaN)
-            }}
-            onClick={
-                ()=>{
-                    window.location.pathname = "Articles/" + item.link                }
-            }>
+            }}>
                 <div className="article-circle">
                     <Lottie
                     lottieRef={lottieRef}
@@ -100,7 +105,7 @@ function ArticleBlocks({articleVisibleValue,articleWidthValue,articleType,number
                         <span className="date">{item.date}</span>
                     </div>
                 </div>
-            </div>
+            </Link>
         </article>
         )
     }})}
