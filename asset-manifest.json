@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/homelab/static/css/main.b4ef55ae.css",
-    "main.js": "/homelab/static/js/main.d515d79b.js",
-    "static/js/787.f3c559d9.chunk.js": "/homelab/static/js/787.f3c559d9.chunk.js",
-    "index.html": "/homelab/index.html",
-    "main.b4ef55ae.css.map": "/homelab/static/css/main.b4ef55ae.css.map",
-    "main.d515d79b.js.map": "/homelab/static/js/main.d515d79b.js.map",
-    "787.f3c559d9.chunk.js.map": "/homelab/static/js/787.f3c559d9.chunk.js.map"
+    "main.css": "/static/css/main.b4ef55ae.css",
+    "main.js": "/static/js/main.d27b7d8a.js",
+    "static/js/787.f3c559d9.chunk.js": "/static/js/787.f3c559d9.chunk.js",
+    "index.html": "/index.html",
+    "main.b4ef55ae.css.map": "/static/css/main.b4ef55ae.css.map",
+    "main.d27b7d8a.js.map": "/static/js/main.d27b7d8a.js.map",
+    "787.f3c559d9.chunk.js.map": "/static/js/787.f3c559d9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b4ef55ae.css",
-    "static/js/main.d515d79b.js"
+    "static/js/main.d27b7d8a.js"
   ]
 }
