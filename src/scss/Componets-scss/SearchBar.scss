@@ -1,11 +1,12 @@
 @import '../Mixins.scss';
 @import '../Variables.scss';
 
-section{
+.search-bar-section{
     display: flex;
     flex-direction: row;
     gap: 7.5px;
     transition: all 0.5s ease-out;
+    padding: 0;
     @include lg{
         padding: 20px;
     }
@@ -80,6 +81,75 @@ section{
         @include button-style($medium-text-size, $small-padding-button);
         @include lg{
             display: none;
+        }
+    }
+}
+.main-search-items-div{
+    .search-items-section{
+        margin-top: 20px;
+        position: absolute;
+        display: flex;
+        z-index: 100;
+        display: column;
+        gap: 15px;
+        .search-all-items{
+            width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            transition: all 0.5s ease-out;
+            overflow: hidden;
+            opacity: 0;
+            &.active{
+                width: 100%;
+                gap: 10px;
+                overflow: visible;
+                opacity: 1;
+            }
+            .search-item{
+                box-sizing: border-box;
+                margin: 0;
+                text-decoration: none;
+                padding: 20px;
+                width: 100%;
+                background-color: $backround-color;
+                border: solid 3px $purple-color;
+                align-items: center;
+                border-radius: $border-radius;
+                display: flex;
+                justify-content: space-between;
+                .search-item-content{
+                    width: 30%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    opacity: 0;
+                    display: none;
+                    transition: all .1s ease-out;
+                    &.active{
+                        opacity: 1;
+                        display: block;
+                    }
+                    p{
+                        padding: 0;
+                        margin: 0;
+                        @include text-style($medium-text-size, 600, $black-blue-color, 130%)
+                    }
+                .search-item-tags{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 5px;
+                    span{
+                        @include text-style($small-text-size, 400, $black-blue-color, 100%)
+                    }
+                }
+                }
+                .search-img-block{
+                    width: 138px;
+                    height: 122px;
+                    background: #A66CFF;
+                }
+            }
         }
     }
 }

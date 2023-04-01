@@ -88,14 +88,25 @@
             background-color: $block-color;
             height: fit-content;
             transition: all 0.5s ease-out;
-            pointer-events:all;
+            pointer-events:none;
             text-decoration: none;
-            cursor: inherit;
-                pointer-events: all;
+            &.active{
                 cursor: pointer;
+                pointer-events: all;
                 svg {
                     .circle{
                         fill: $black-blue-color;
+                        transition: all 0.5s ease-out;
+                    }
+            }
+            &:hover .circle {
+                fill: $circle-color;
+            }
+        }
+            cursor: inherit;
+                svg {
+                    .circle{
+                        fill: rgb(206, 206, 206);
                     }
                     opacity: 0.9;
                 }
@@ -135,7 +146,7 @@
             svg {
                 width: 100%;
                 .circle {
-                    fill: #CECDCD;
+                    fill: rgb(207, 207, 207);
                     transition: all 0.5s ease-out;
                 }
             }

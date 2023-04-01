@@ -1,7 +1,8 @@
 const Articles = [
     {
-        title:"Project Nam Floating and Sinking",
+        title:"Project Nam Floating Sinking",
         link:"ProjectNamFloatingandSinking",
+        searchTags: "project nam floating sinking Project Nam Floating Sinking",
         types:[
             "Chimestry",
             "Article",
@@ -17,6 +18,7 @@ const Articles = [
     {
         title:"Mentos and Soda",
         link:"MentosandSoda",
+        searchTags: "mentos and soda Mentos and Soda" ,
         types:[
             "Chimestry",
             "Article",
@@ -31,6 +33,7 @@ const Articles = [
     },
     {
         title:"Baking Soda and Vinegar",
+        searchTags: "baking soda and vinegar Baking Soda and Vinegar",
         link:"BakingSodaandVinegar",
         types:[
             "Chimestry",
@@ -47,6 +50,7 @@ const Articles = [
     {
         title:"Static Electricity",
         link:"StaticElectricity",
+        searchTags: "static electricity Static Electricity",
         types:[
             "Chimestry",
             "Article",
@@ -60,6 +64,7 @@ const Articles = [
         alert:""
     },{
         title:"Baking Soda and Vinegar",
+        searchTags: "baking soda vinegar home chemistry",
         link:"BakingSodaandVinegar",
         types:[
             "Chimestry",
@@ -75,6 +80,7 @@ const Articles = [
     },
     {
         title:"Baking Soda and Vinegar",
+        searchTags: "baking soda vinegar home chemistry",
         link:"BakingSodaandVinegar",
         types:[
             "Chimestry",
@@ -90,6 +96,7 @@ const Articles = [
     },
     {
         title:"Baking Soda and Vinegar",
+        searchTags: "baking soda vinegar home chemistry",
         link:"BakingSodaandVinegar",
         types:[
             "Chimestry",

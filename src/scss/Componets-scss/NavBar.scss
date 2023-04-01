@@ -138,12 +138,14 @@ nav {
                 width: 100%;
                 @include lg{
                     height: 20px;
+                    width: 3px;
                 }
             }
             &.active span {
                 width: 100%;
                 @include lg{
                     height: 20px;
+                    width: 3px;
                 }
             }
         }
