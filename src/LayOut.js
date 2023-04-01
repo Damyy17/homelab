@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { Outlet } from 'react-router-dom'
 import AbsoluteBacround from './components/AbsoluteBacround'
 import HeaderComponent from './containers/HeaderComponent'
+import Footer from './containers/Footer'
 
 function LayOut() {
 const [typeBackround, setBackround] = useState("inactive")
@@ -11,6 +12,7 @@ const [typeBackround, setBackround] = useState("inactive")
     <main>
       <HeaderComponent setBackround = {setBackround}/>
       <Outlet/>
+    <Footer/>
     </main>
     </>
   )

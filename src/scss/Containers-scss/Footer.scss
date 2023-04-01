@@ -1,0 +1,157 @@
+@import '../Mixins.scss';
+@import '../Variables.scss';
+
+.footer{
+    box-sizing: border-box;
+    background-color: $black-blue-color;
+    border-radius: $border-radius;
+    padding: 50px 60px;
+    display: grid;
+    grid-template-columns: 20% 30% 25%;
+    @include lg{
+        grid-template-columns: 22% 15% 30%;
+    }
+    @include md{
+        grid-template-columns: 40% 50%;
+        row-gap: 20px;
+    }
+    @include sm{
+        grid-template-columns: 100%;
+        padding: 30px max(3.75vw, 10px);
+        justify-content: space-evenly;
+        justify-items: center;
+        align-content: space-evenly;
+        align-items: center;
+    }
+    justify-content: space-between;
+    .footer-info{
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        @include md{
+            width:max(30vw, 200px);
+        }
+        @include sm{
+            width: calc(100% - 60px);
+            align-items: center;
+        }
+        p{
+            padding: 0;
+            margin: 0;
+            @include text-style(24px, 600, $backround-color, 140%);
+            @include sm{
+                text-align: center;
+            }
+        }
+        article{
+            padding: 0;
+            margin: 0;
+            @include text-style(18px, 300, $backround-color, 140%);
+            @include sm{
+                text-align: center;
+            }
+        }
+        .footer-social-icons{
+            display: flex;
+            gap: 15px;
+            svg{
+                cursor: pointer;
+            }
+        }
+        span{
+            @include text-style(18px, 300, $backround-color, 120%)
+        }
+    }
+    .footer-all-links{
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        row-gap: 20px;
+        column-gap: 20px;
+        height: fit-content;
+        @include lg{
+            grid-template-columns: auto auto;
+        }
+        @include md{
+            grid-template-columns: auto auto auto auto;
+            grid-row: 2;
+            grid-column: 1/span 2
+        }
+        @include sm{
+            grid-row: 3;
+            width: calc(100% - 60px);
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .footer-link{
+            @include text-style(20px, 300, $backround-color, 120%);
+            text-decoration: none;
+            height: fit-content;
+            width: fit-content;
+            transition: all 0.5s ease-out;
+            &:hover{
+                @include text-style(20px, 400, $backround-color, 120%);
+            }
+        }
+    }
+    .footer-news-latter{
+        border: solid 3px $backround-color;
+        padding: 20px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include md{
+            grid-column: 2;
+        }
+        @include sm{
+            width: calc(100% - 90px);
+            grid-column:1;
+        }
+        p{
+            margin: 0;
+            padding: 0;
+            @include text-style(24px, 600, $backround-color, 120%)
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            label{
+                margin-top: 5px;
+                @include text-style(18px, 300, $backround-color, 120%)
+            }
+            .input-icon{
+                display: flex;
+                width: 100%;
+                box-sizing: border-box;
+                border: solid 3px $backround-color;
+                border-radius: 15px;
+                padding: 15px;
+                justify-content: space-around;
+                align-items: center;
+                input[type = text]{
+                    offset: none;
+                    outline: none;
+                    border: none;
+                    background-color: transparent;
+                    @include text-style(18px, 400, $backround-color, 120%);
+                    @include sm{
+                        width: 100%
+                    }
+                }
+            }
+            button{
+                @include button-style(20px, auto);
+                width: 100%;
+                margin-top: 15px;
+                padding: 14px 0;
+                border-radius: 15px;
+                justify-content: center;
+            }
+        }
+    }
+
+}
