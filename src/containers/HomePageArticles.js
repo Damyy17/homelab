@@ -1,4 +1,5 @@
 import React,{useEffect, useLayoutEffect, useRef, useState} from 'react'
+import { useLocation } from 'react-router-dom'
 import ArticleBlocks from '../components/ArticleBlocks'
 import "../scss/Containers-scss/HomePageArticles.scss"
 
@@ -7,37 +8,37 @@ function HomePageArticles() {
 const articleMainBlock = useRef(null)
 const [moveValuie, setMoveValuie] = useState(0)
 const [articleValue, setArticoleValuie] = useState(0)
-const [mainBlockValue, setMainBockValuie] = useState(0)
+const articleWidth = useRef(null)
+
 const setValue = (articleWidthValue) =>{
-        setArticoleValuie(articleWidthValue)
+  articleWidth.current = articleWidthValue
+  setArticoleValuie(articleWidthValue.current.offsetWidth)
 }
+console.log(articleValue)
 const[WindowWidth, setWindowWidth] = useState( window.innerWidth)
 useEffect(()=>{
   function resizeWindow(){
     setWindowWidth((value)=> value = window.innerWidth)
-    console.log(WindowWidth)
   }
   window.addEventListener("resize",resizeWindow)
 })
-useLayoutEffect(()=>{
-  setMainBockValuie(
-    articleMainBlock.current.offsetWidth)
-  },[])
-  
-  var numberOfActive = parseInt((mainBlockValue)/(articleValue+30)) 
-  if(WindowWidth<1000){
-    numberOfActive = parseInt((mainBlockValue)/(articleValue)) 
-  }
+
+  const numberOfActive = useRef(0)
   const [numberOfActiveArrState, setNumberOfArtiveArrState]= useState([])
-  console.log(numberOfActive)
-  useEffect(()=>{
-      console.log("Hello world")
-      for(let i = 0; i < numberOfActive; i+=1){
-        console.log("merge")
-        setNumberOfArtiveArrState((current)=>[...current, i])
-      }
-  },[numberOfActive])
-  console.log(numberOfActiveArrState)
+
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log(articleMainBlock.current.offsetWidth/((articleWidth.current.current.offsetWidth)+30))
+    console.log(articleWidth.current.current.offsetWidth)
+    numberOfActive.current = Math.floor(articleMainBlock.current.offsetWidth/((articleWidth.current.current.offsetWidth)+30))
+    if( WindowWidth < 1000 ){
+      numberOfActive.current = Math.floor(articleMainBlock.current.offsetWidth/(articleWidth.current.current.offsetWidth))
+    }
+    for(let i = 0; i < numberOfActive.current; i+=1){
+      setNumberOfArtiveArrState((current)=>[...current, i])
+    }
+  }, [location]);
 
   return (
     <section ref={articleMainBlock} className='Home-page-articles-slider'>
@@ -48,6 +49,7 @@ useLayoutEffect(()=>{
             <div className="buttons">
                 <button
                 onClick={()=>{
+                  console.log(numberOfActive)
                   setMoveValuie((valuie)=>{
                     if(valuie === 0){
                       return 0 

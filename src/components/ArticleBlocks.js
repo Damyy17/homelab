@@ -10,18 +10,12 @@ function ArticleBlocks({articleVisibleValue,articleWidthValue,articleType,number
     const lottieRef = useRef(null)
     const articleRef = useRef(0)
     const [historyValue, setHistoryValuie] = useState([])
-    const [articleWidth, setArticleWidth] = useState(0)
-    useLayoutEffect(()=>{
-        setArticleWidth(
-            articleRef.current.offsetWidth
-        )
-    }, [])
     useEffect(()=>{
         localStorage.setItem("items", JSON.stringify(historyValue))
         const valuie = JSON.parse(localStorage.getItem("historyValue"))
         setHistoryValuie(valuie)
     },[])
-    articleWidthValue(articleWidth)
+    articleWidthValue(articleRef)
     const [articleActive, setArticleActive] = useState(NaN)
     const articleActiveFunction = (index) =>{
     if(index === articleActive){

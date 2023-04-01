@@ -8,7 +8,6 @@ function HeaderComponent({setBackround}) {
   useEffect(()=>{
     function resizeWindow(){
       setWindowWidth((value)=> value = window.innerWidth)
-      console.log(WindowWidth)
     }
     window.addEventListener("resize",resizeWindow)
   })
