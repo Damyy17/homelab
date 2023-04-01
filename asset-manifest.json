@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/homelab/static/css/main.b4ef55ae.css",
-    "main.js": "/homelab/static/js/main.2a447846.js",
+    "main.css": "/homelab/static/css/main.5041ecca.css",
+    "main.js": "/homelab/static/js/main.7b1d18d4.js",
     "static/js/787.f3c559d9.chunk.js": "/homelab/static/js/787.f3c559d9.chunk.js",
+    "static/media/Physics.svg": "/homelab/static/media/Physics.f4868f1a6e378c364ed8a0251f9b0c55.svg",
+    "static/media/Biology.svg": "/homelab/static/media/Biology.e7a0bcf3aa0d568f0a33fdc1acd0ed19.svg",
+    "static/media/CS.svg": "/homelab/static/media/CS.e2af6df6fd212c71ac7bca5243a88ccf.svg",
+    "static/media/Chemistry.svg": "/homelab/static/media/Chemistry.0aab828c95ef399a2ca552db2db562f1.svg",
     "index.html": "/homelab/index.html",
-    "main.b4ef55ae.css.map": "/homelab/static/css/main.b4ef55ae.css.map",
-    "main.2a447846.js.map": "/homelab/static/js/main.2a447846.js.map",
+    "main.5041ecca.css.map": "/homelab/static/css/main.5041ecca.css.map",
+    "main.7b1d18d4.js.map": "/homelab/static/js/main.7b1d18d4.js.map",
     "787.f3c559d9.chunk.js.map": "/homelab/static/js/787.f3c559d9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b4ef55ae.css",
-    "static/js/main.2a447846.js"
+    "static/css/main.5041ecca.css",
+    "static/js/main.7b1d18d4.js"
   ]
 }
