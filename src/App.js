@@ -9,6 +9,7 @@ import ArticlePage from './containers/ArticlePage';
 import LayOut from './LayOut';
 
 function App() {
+  localStorage.setItem("items", JSON.stringify([]))
   return (
     <>
       <Routes>

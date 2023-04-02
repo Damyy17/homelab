@@ -5,7 +5,8 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 150px;
+    margin-top: 100px;
     .title-short-text{
         width: 100%;
         display: flex;
@@ -53,8 +54,8 @@
         }
         article{
             border-radius: $border-radius;
-            width: 875px;
-            @include text-style(20px, 300, $font-color-black, 110%);
+            width: 600px;
+            @include text-style(20px, 300, $font-color-black, 120%);
             @include md{
                 width: calc(100% - 100px);
             }
@@ -89,9 +90,9 @@
                 width: 100%;
                 &.black-theme{
                     background-color: $black-blue-color;
-                    @include text-style(20px, 300, $purple-color, 110%);
+                    @include text-style(20px, 300, $circle-color, 120%);
                 }
-                @include text-style(20px, 300, $font-color-black, 110%);
+                @include text-style(20px, 300, $font-color-black, 120%);
                 @include sm{
                     padding: max(4.28vw, 15px);
                     @include text-style(max(2.85vw, 16px), 300, $font-color-black, 110%);
@@ -99,7 +100,19 @@
             }
         }
     }
-    .histoty-section{
+}
+.histoty-section{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    p{
+        padding: 0;
+        margin: 0;
+        @include text-style(20px, 400, $font-color-black, 110%);
+    }
+    .last-articels-history{
         display: flex;
         gap: 30px;
     }

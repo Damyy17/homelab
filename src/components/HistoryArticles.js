@@ -1,16 +1,24 @@
-import React,{useState, useRef, useLayoutEffect, useEffect} from 'react'
-import { Link } from 'react-router-dom'
-import "../scss/Componets-scss/ArticleBlock.scss"
-import Article from "../Assets/JSON/Article.json"
-import Lottie from 'lottie-react'
+import React,{useState, useRef, useEffect} from 'react'
 import Articles from '../Assets/Articles'
+import { Link } from 'react-router-dom'
+import Lottie from 'lottie-react'
+import Article from "../Assets/JSON/Article.json"
+import "../scss/Componets-scss/ArticleBlock.scss"
+ 
 
-function ArticleBlocks({articleVisibleValue,articleWidthValue,articleType,number}) {
-
-    const lottieRef = useRef(null)
+function HistoryArticles(articleWidthValuie) {
+    const lottieRef = useRef()
     const articleRef = useRef(0)
-
-    articleWidthValue(articleRef)
+    const mainBlockRef = useRef(0)
+    const [historyValue, setHistoryValuie] = useState([])
+    const maxNumberRef = useRef(0)
+    useEffect(()=>{
+        maxNumberRef.current = mainBlockRef.current.offsetWidth/articleRef.current.offsetWidth
+    },[])
+    useEffect(()=>{
+        const valuie = JSON.parse(localStorage.getItem("items"))
+        setHistoryValuie(valuie)
+    },[])
     const [articleActive, setArticleActive] = useState(NaN)
     const articleActiveFunction = (index) =>{
     if(index === articleActive){
@@ -19,25 +27,16 @@ function ArticleBlocks({articleVisibleValue,articleWidthValue,articleType,number
         return ""
     }
 }
-
-    const articleVisible = (index) =>{
-        if (index === articleVisibleValue.find(el=> el === index)){
-            return"visible"
-        }
-        else if(articleVisibleValue === "all"){
-            return"visible"
-
-        }
-        else{
-            return"invisible"
-        }
-    }
+console.log()
   return (
     <>
-    {Articles.slice(0,number).map((item,  Index)=>{
-        if(item.types.find((x)=> x === articleType)){
+    <div ref={mainBlockRef} style={{width:"100%", display:"flex", gap:"30px"}}>
+    {Articles.map((item, Index) =>{
+        if(historyValue.includes(Index) && Index <= maxNumberRef.current ){
+            console.log(historyValue)
+            console.log(maxNumberRef.current)
         return(
-        <article ref={articleRef} className={`${articleActiveFunction(Index)} ${articleVisible(Index)}`} key={Index}>
+        <article ref={articleRef} className={`${articleActiveFunction(Index)} visible`} key={Index}>
             <div 
             className="article-decoration-blocks">
                 <svg className={`pen ${articleActiveFunction(Index)}`}  width="85" height="66" viewBox="0 0 85 66" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,6 +54,11 @@ function ArticleBlocks({articleVisibleValue,articleWidthValue,articleType,number
             <Link 
             to={`Articles/${item.link}`}
             className={`main-article-block ${articleActiveFunction(Index)}`}
+            onClick={()=>{
+                setHistoryValuie(prevValuie=>{
+                    return{ ...prevValuie, Index}
+                })
+            }}
             onMouseOverCapture={()=>{
                 setArticleActive(Index)
             }}
@@ -97,9 +101,10 @@ function ArticleBlocks({articleVisibleValue,articleWidthValue,articleType,number
             </Link>
         </article>
         )
-    }})}
+}})}
+    </div>
     </>
   )
 }
 
-export default ArticleBlocks
+export default HistoryArticles

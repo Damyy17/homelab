@@ -1,22 +1,31 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect,useRef} from 'react'
 import { useParams } from 'react-router-dom'
 import Articles from '../Assets/Articles'
 import "../scss/Containers-scss/ArticlePage.scss"
+import { useLocation } from 'react-router-dom'
+import HistoryArticles from '../components/HistoryArticles'
 
 function ArticlePage() {
-
-    // const [articleHistoryValue, setArticleHistoryValuie] = useState([])
     // useEffect(()=>{
     //     const valuie = JSON.parse(localStorage.getItem("historyValue"))
     //     setArticleHistoryValuie(valuie)
     // },[setArticleHistoryValuie])
+    const historyValueRef = useRef([])
+    useEffect(()=>{
+        const valuie = JSON.parse(localStorage.getItem("items"))
+        console.log(valuie)
+        historyValueRef.current = JSON.parse(localStorage.getItem("items"))
+        historyValueRef.current.push(Articles.findIndex(el => el.link === title))
+        localStorage.setItem("items", JSON.stringify(historyValueRef.current))
+        console.log(historyValueRef.current)
+    },[])
     const {title} = useParams()
-    console.log(title)
   return (
     <>
     {Articles.map((item,Index)=>{
         if(item.link === title){
             return(
+                <>
                 <section className='article-page-container'>
                     <section className="title-short-text">
                         <div className="title-links">
@@ -55,9 +64,14 @@ function ArticlePage() {
                             </article>
                         </div>
                     </section>
-                    <section className='histoty-section'>
-                    </section>
                 </section>
+                    <section className='histoty-section'>
+                        <p> <b>Your</b> Articles History</p>
+                        <div className="last-articels-history">
+                        <HistoryArticles/>
+                        </div>
+                    </section>
+                </>
             )
         }
     })}
