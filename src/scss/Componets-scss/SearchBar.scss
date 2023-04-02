@@ -66,10 +66,10 @@
             padding: 0 20px;
         }
         @include md{
-            width: max(38vw, 200px);
+            width: 80%;
         }
         @include sm{
-            width: 60%;
+            width: 70%;
             font-size: max(2.85vw, 16px);
             height: fit-content;
             padding: max(1.42vw, 5px);
@@ -92,6 +92,9 @@
         z-index: 100;
         display: column;
         gap: 15px;
+        @include md{
+            margin-top: 0;
+        }
         .search-all-items{
             width: 0;
             display: flex;
@@ -100,6 +103,15 @@
             transition: all 0.5s ease-out;
             overflow: hidden;
             opacity: 0;
+            @include lg{
+                width: 100%;
+                gap: 10px;
+                overflow: visible;
+                opacity: 1;
+            }
+            @include sm{
+                width: 95%;
+            }
             &.active{
                 width: 100%;
                 gap: 10px;
@@ -118,6 +130,10 @@
                 border-radius: $border-radius;
                 display: flex;
                 justify-content: space-between;
+                @include md{
+                    flex-direction: column;
+                    gap: 30px;
+                }
                 .search-item-content{
                     width: 30%;
                     display: flex;
@@ -126,6 +142,14 @@
                     opacity: 0;
                     display: none;
                     transition: all .1s ease-out;
+                    @include lg{
+                        display: flex;
+                        opacity: 1;
+                    }
+                    @include md{
+                        width: 100%;
+                        flex-direction: column;
+                    }
                     &.active{
                         opacity: 1;
                         display: block;
@@ -133,14 +157,21 @@
                     p{
                         padding: 0;
                         margin: 0;
-                        @include text-style($medium-text-size, 600, $black-blue-color, 130%)
+                        @include text-style($medium-text-size, 600, $black-blue-color, 130%);
+                        @include sm{
+                            @include text-style(max(2.85vw, 18px), 600, $black-blue-color, 130%)
+                        }
                     }
                 .search-item-tags{
                     display: flex;
                     flex-wrap: wrap;
                     gap: 5px;
                     span{
-                        @include text-style($small-text-size, 400, $black-blue-color, 100%)
+                        @include text-style($small-text-size, 400, $black-blue-color, 100%);
+                        @include sm{
+                            @include text-style(max(2.570w, 15px), 400, $black-blue-color, 100%)
+                
+                        }
                     }
                 }
                 }
@@ -148,6 +179,9 @@
                     width: 138px;
                     height: 122px;
                     background: #A66CFF;
+                    @include md{
+                        width: 100%;
+                    }
                 }
             }
         }

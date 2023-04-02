@@ -1,4 +1,4 @@
-import React, { useState,useRef} from "react";
+import React, { useState,useRef,useEffect} from "react";
 import { Link } from "react-router-dom";
 import Articles from "../Assets/Articles";
 import "../scss/Componets-scss/SearchBar.scss"
@@ -8,8 +8,21 @@ export default function SearchBar() {
   const [sectionActive, setsectionActive] = useState(true);
   const sectionWidth = useRef(NaN)
   const [searchWidth, setSearchWidth] = useState(0)
+  const maxNumber =useRef(4)
 
   const [query, setQuery] = useState("")
+  useEffect(()=>{
+    if(window.innerWidth < 1440){
+      setSearchBarActive(true);
+      setsectionActive(true);
+    }
+    if(window.innerWidth < 1000){
+      maxNumber.current = 3
+    }
+    if(window.innerWidth < 700){
+      maxNumber.current = 2
+    }
+  })
   const getItemsQuery = (query, items) =>{
   if(!query) {
     return []
@@ -22,8 +35,13 @@ const filtreItems = getItemsQuery(query, Articles)
     <div style={{display: "flex", flexDirection: "column"}}>
     <section ref={sectionWidth} className={`search-bar-section ${sectionActive ? "" : "active"}`}>
         <button className="search-icon" onClick={()=>{
-         setSearchBarActive(!searchBarActive);
-         setsectionActive(!sectionActive);
+          if(window.innerWidth > 1440 ){
+            setSearchBarActive(!searchBarActive);
+            setsectionActive(!sectionActive);
+          }else{
+            setSearchBarActive(true);
+            setsectionActive(true);
+          }
         }}>
         <svg viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 29.846L10.3023 18.4606" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -45,7 +63,7 @@ const filtreItems = getItemsQuery(query, Articles)
     <div className="main-search-items-div">
       <section style={{width: `${searchWidth}px`}} className="search-items-section">
         <div className={`search-all-items ${searchBarActive ? "" : "active"}`}>
-          {filtreItems.slice(0,4).map((item, index)=>{
+          {filtreItems.slice(0,maxNumber.current).map((item, index)=>{
             return(
               <Link to={`Articles/${item.link}`} key={index} className="search-item">
                 <div className={`search-item-content ${searchBarActive ? "" : "active"}`}>
