@@ -69,7 +69,7 @@
             width: 80%;
         }
         @include sm{
-            width: calc(80% - 30px);
+            width: calc(80% - 40px);
             font-size: max(2.85vw, 16px);
             height: fit-content;
             padding: max(1.42vw, 5px);
