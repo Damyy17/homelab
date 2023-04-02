@@ -6,14 +6,24 @@ import Article from "../Assets/JSON/Article.json"
 import "../scss/Componets-scss/ArticleBlock.scss"
  
 
-function HistoryArticles(articleWidthValuie) {
+function HistoryArticles() {
     const lottieRef = useRef()
-    const articleRef = useRef(0)
     const mainBlockRef = useRef(0)
     const [historyValue, setHistoryValuie] = useState([])
     const maxNumberRef = useRef(0)
+    const articleValueRef = useRef([])
+
     useEffect(()=>{
-        maxNumberRef.current = mainBlockRef.current.offsetWidth/articleRef.current.offsetWidth
+        maxNumberRef.current = 4
+        if( window.innerWidth === 1440){
+            maxNumberRef.current = 3
+        }else if(window.innerWidth === 1000){
+            maxNumberRef.current = 2
+        }else if(window.innerWidth === 700){
+            maxNumberRef.current = 1
+        }
+        console.log(mainBlockRef)
+        console.log(articleValueRef)
     },[])
     useEffect(()=>{
         const valuie = JSON.parse(localStorage.getItem("items"))
@@ -33,10 +43,10 @@ console.log()
     <div ref={mainBlockRef} style={{width:"100%", display:"flex", gap:"30px"}}>
     {Articles.map((item, Index) =>{
         if(historyValue.includes(Index) && Index <= maxNumberRef.current ){
-            console.log(historyValue)
-            console.log(maxNumberRef.current)
         return(
-        <article ref={articleRef} className={`${articleActiveFunction(Index)} visible`} key={Index}>
+        <article
+        ref={el => articleValueRef.current.push(el)}
+        className={`${articleActiveFunction(Index)} visible`} key={Index}>
             <div 
             className="article-decoration-blocks">
                 <svg className={`pen ${articleActiveFunction(Index)}`}  width="85" height="66" viewBox="0 0 85 66" fill="none" xmlns="http://www.w3.org/2000/svg">
