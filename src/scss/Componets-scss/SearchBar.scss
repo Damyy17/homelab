@@ -177,8 +177,9 @@
                 }
                 .search-img-block{
                     width: 138px;
-                    height: 122px;
-                    background: #A66CFF;
+                    height: 100px;
+                    background-image: url("../../../public/Images/Article.png");
+                    background-size: 100%;
                     @include md{
                         width: 100%;
                     }

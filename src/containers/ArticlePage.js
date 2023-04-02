@@ -45,6 +45,7 @@ function ArticlePage() {
                             {item.shortText}
                         </article>
                         </div>
+                        <div className="article-img"></div>
                     </section>
                     <section className='more-information-container'>
                         <div className="text-block">

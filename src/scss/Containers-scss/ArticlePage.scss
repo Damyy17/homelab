@@ -7,16 +7,24 @@
     flex-direction: column;
     gap: 150px;
     margin-top: 100px;
+    @include sm{
+        gap: 50px;
+        margin-top: 50px;
+    }
     .title-short-text{
         width: 100%;
         display: flex;
-        flex-direction: column;
         gap: 30px;
+        justify-content: space-between;
+        align-items: center;
         @include lg{
             flex-direction: column;
-            gap: 20px;
+            gap: 100px;
             justify-content: flex-start;
             align-items: flex-start;
+        }
+        @include sm{
+            gap: 50px;
         }
         .title-links{
             display: flex;
@@ -33,7 +41,10 @@
                         @include text-style(25px, 500, $purple-color, 100%);
                     }
                     @include sm{
-                        @include text-style(max(3.57vw, 16px),500, $font-color-black, 100%)
+                        @include text-style(max(3.57vw, 16px),500, $font-color-black, 100%);
+                        &:hover{
+                            @include text-style(max(3.57vw, 16px), 500, $purple-color, 100%);
+                        }
                     }
                 }
             }
@@ -42,6 +53,9 @@
                 padding: 0;
                 margin: 0;
                 @include text-style(64px, 700, $font-color-black, 120%);
+                @include lg{
+                    width: 80%;
+                }
                 @include md{
                     width: 400px;
                     @include text-style(50px, 700, $font-color-black, 120%);
@@ -51,19 +65,39 @@
                     @include text-style(max(7.14vw, 32px), 700, $font-color-black, 120%);
                 }
             }
+            article{
+                border-radius: $border-radius;
+                width: 600px;
+                @include lg{
+                    width: 80%;
+                }
+                @include text-style(20px, 300, $font-color-black, 120%);
+                @include md{
+                    width: calc(100% - 100px);
+                }
+                @include sm{
+                    width: calc(100% - 30px);
+                    @include text-style(max(2.85vw, 16px), 300, $font-color-black, 110%);
+                }
+            }
         }
-        article{
-            border-radius: $border-radius;
-            width: 600px;
-            @include text-style(20px, 300, $font-color-black, 120%);
+        .article-img{
+            width: 700px;
+            height: 400px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url("../../../public/Images/ArticlePageImg.png");
+            background-size: 100%;
+            @include lg{
+                width: 60%;
+                height:35vw;
+            }
             @include md{
-                width: calc(100% - 100px);
-            }
-            @include sm{
-                width: calc(100% - 30px);
-                @include text-style(max(2.85vw, 16px), 300, $font-color-black, 110%);
+                width: 80vw;
+                height:50vw;
             }
         }
+
     }
     .more-information-container{
         display: grid;

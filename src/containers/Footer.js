@@ -161,7 +161,7 @@ function Footer() {
                             stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </span>
-                <button>Subscribe</button>
+                <button type='submit'>Subscribe</button>
             </form>
         </div>
     </section>
