@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/homelab/static/css/main.7fbdce97.css",
-    "main.js": "/homelab/static/js/main.990ecf36.js",
+    "main.js": "/homelab/static/js/main.6b8f2d56.js",
     "static/js/787.f3c559d9.chunk.js": "/homelab/static/js/787.f3c559d9.chunk.js",
     "static/media/Physics.svg": "/homelab/static/media/Physics.f4868f1a6e378c364ed8a0251f9b0c55.svg",
     "static/media/ArticlePageImg.png": "/homelab/static/media/ArticlePageImg.a45d11e7670f73dca707.png",
@@ -11,11 +11,11 @@
     "static/media/Article.png": "/homelab/static/media/Article.35a57cbf4fcb90604152.png",
     "index.html": "/homelab/index.html",
     "main.7fbdce97.css.map": "/homelab/static/css/main.7fbdce97.css.map",
-    "main.990ecf36.js.map": "/homelab/static/js/main.990ecf36.js.map",
+    "main.6b8f2d56.js.map": "/homelab/static/js/main.6b8f2d56.js.map",
     "787.f3c559d9.chunk.js.map": "/homelab/static/js/787.f3c559d9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7fbdce97.css",
-    "static/js/main.990ecf36.js"
+    "static/js/main.6b8f2d56.js"
   ]
 }
